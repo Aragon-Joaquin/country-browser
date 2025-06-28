@@ -53,6 +53,22 @@ body {
 	}
 }
 
+/* finish this */
+select {
+	width: 180px;
+	height: 40px;
+	border: 0;
+	background-color: var(--white);
+	color: var(--black);
+	font-size: 16px;
+	padding: 5px;
+
+	& > option {
+		background-color: var(--white);
+		color: var(--black);
+	}
+}
+
 h1,
 h2,
 h3,
