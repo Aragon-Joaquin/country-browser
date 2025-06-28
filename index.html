@@ -30,9 +30,46 @@
 		</header>
 
 		<main id="app-main">
+			<div class="image-container">
+				<form class="search-form">
+					<label for="continent-select"
+						>Filter by Continent
+						<select id="continent-select">
+							<option value="" disabled selected>Select a continent</option>
+							<option value="any">Any</option>
+							<option value="africa">Africa</option>
+							<option value="asia">Asia</option>
+							<option value="europe">Europe</option>
+							<option value="americas">Americas</option>
+							<option value="oceania">Oceania</option>
+						</select>
+					</label>
+
+					<label for="region-search"
+						>Filter by Subregion
+						<select id="region-search">
+							<option value="" disabled selected>Select a subregion</option>
+						</select>
+					</label>
+
+					<span class="separator">
+						<div class="line"></div>
+						<p class="separator-or">OR</p>
+						<div class="line"></div>
+					</span>
+
+					<label for="country-search"
+						>Search by Country
+						<input type="text" id="country-search" class="primary-button" placeholder="e.x.: Argentina" />
+					</label>
+
+					<!-- <button type="submit">Search</button> -->
+				</form>
+			</div>
+
 			<div class="hero-section">
 				<span class="hero-title">
-					<h2>Discover Countries Around the World!</h2>
+					<h2>Discover Countries Around the <strong>World!</strong></h2>
 					<p>
 						Explore a comprehensive collection of information about countries worldwide, including their history,
 						culture, geography, and unique facts. Dive deeper to expand your knowledge and satisfy your curiosity about
@@ -46,35 +83,6 @@
 					<img src="/imgs/capital3.webp" alt="image of Camlica Tower, Coast of Istanbul" />
 				</div>
 			</div>
-
-			<form class="search-form">
-				<label for="continent-select"
-					>Filter by Continent:
-					<select id="continent-select">
-						<option value="" disabled selected>Select a continent</option>
-						<option value="any">Any</option>
-						<option value="africa">Africa</option>
-						<option value="asia">Asia</option>
-						<option value="europe">Europe</option>
-						<option value="americas">Americas</option>
-						<option value="oceania">Oceania</option>
-					</select>
-				</label>
-
-				<label for="region-search"
-					>Filter by Subregion:
-					<select id="region-search">
-						<option value="" disabled selected>Select a subregion</option>
-					</select>
-				</label>
-
-				<label for="country-search"
-					>Search by Country:
-					<input type="text" id="country-search" placeholder="Search for a country..." />
-				</label>
-
-				<button type="submit">Search</button>
-			</form>
 		</main>
 
 		<footer id="app-footer"></footer>
