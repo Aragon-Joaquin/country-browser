@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Country Browser</title>
+
+		<link rel="stylesheet" href="/src/assets/styles/landing.css" />
+	</head>
+	<body>
+		<header id="app-header">
+			<span class="logo-container">
+				<img src="/vite.svg" alt="Logo" class="logo" />
+				<h6 class="header-title">Country Browser</h6>
+			</span>
+			<nav class="header-nav">
+				<ul class="nav-list">
+					<li><a href="/">Home</a></li>
+					<li><a href="/countries">Countries</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/contact">Contact</a></li>
+				</ul>
+			</nav>
+
+			<span>
+				<input type="text" placeholder="Search Country..." />
+				<button>dark mode</button>
+			</span>
+		</header>
+
+		<main id="app-main">
+			<span>
+				<h2>Discover Countries Around the World!</h2>
+				<p>
+					Explore a comprehensive collection of information about countries worldwide, including their history, culture,
+					geography, and unique facts. Dive deeper to expand your knowledge and satisfy your curiosity about the world
+					we live in.
+				</p>
+			</span>
+
+			<form class="search-form">
+				<label for="continent-select"
+					>Filter by Continent:
+					<select id="continent-select">
+						<option value="" disabled selected>Select a continent</option>
+						<option value="any">Any</option>
+						<option value="africa">Africa</option>
+						<option value="asia">Asia</option>
+						<option value="europe">Europe</option>
+						<option value="americas">Americas</option>
+						<option value="oceania">Oceania</option>
+					</select>
+				</label>
+
+				<label for="region-search"
+					>Filter by Subregion:
+					<select id="region-search">
+						<option value="" disabled selected>Select a subregion</option>
+					</select>
+				</label>
+
+				<label for="country-search"
+					>Search by Country:
+					<input type="text" id="country-search" placeholder="Search for a country..." />
+				</label>
+
+				<button type="submit">Search</button>
+			</form>
+		</main>
+
+		<footer id="app-footer"></footer>
+	</body>
+	<script type="module" src="/src/main.js"></script>
+</html>

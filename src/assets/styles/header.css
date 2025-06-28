@@ -1,0 +1,21 @@
+#app-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+
+	& > .logo-container {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+}
+
+.header-nav {
+	& > ul {
+		display: flex;
+		flex-direction: row;
+		list-style: none;
+		gap: 10px;
+	}
+}
