@@ -1,4 +1,4 @@
 import './style.css'
-import { ListenColorScheme } from './utils/changeSchemeColor'
+import { ListenColorScheme } from './utils'
 
 ListenColorScheme()

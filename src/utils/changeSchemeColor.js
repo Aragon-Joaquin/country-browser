@@ -1,4 +1,5 @@
 import { LOCAL_STORAGE_KEYS } from '../constants'
+import { $, IsWindowUndefined } from './utils'
 
 const SCHEME_MODES = Object.freeze({
 	DARK: 'dark',
@@ -12,6 +13,7 @@ const changeColor = (val) => {
 	root.classList.add(`${val}-mode`)
 	root.classList.remove(`${val === SCHEME_MODES.DARK ? SCHEME_MODES.LIGHT : SCHEME_MODES.DARK}-mode`)
 
+	$('#change-mode img').src = `/svg/bulb-${val === SCHEME_MODES.DARK ? 'off' : 'on'}.svg`
 	localStorage.setItem(LOCAL_STORAGE_KEYS.COLOR_SCHEME, val)
 }
 
@@ -25,7 +27,7 @@ const matchesDark = () => window.matchMedia('(prefers-color-scheme: dark)').matc
  * ListenColorScheme() //tada!
  */
 export function ListenColorScheme() {
-	if (typeof 'window' == undefined) return
+	if (IsWindowUndefined()) return
 	const button = document.getElementById('change-mode')
 
 	// change color on button click
@@ -33,7 +35,6 @@ export function ListenColorScheme() {
 		const comparative = document.documentElement.style.colorScheme === SCHEME_MODES.DARK
 
 		comparative ? changeColor(SCHEME_MODES.LIGHT) : changeColor(SCHEME_MODES.DARK)
-		e.target.src = `/svg/bulb-${comparative ? 'on' : 'off'}.svg`
 	})
 
 	// loads from storage the color from another sessions

@@ -6,7 +6,7 @@ body {
 }
 
 #app-main {
-	margin-top: 50px;
+	margin-top: 100px;
 	display: flex;
 	gap: 30px;
 	flex-direction: column;
@@ -33,7 +33,7 @@ body {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	background-color: rgba(255, 255, 255, 0.3);
+	background-color: rgba(var(--template_shadows_opp), 0.2);
 	padding: 10px 20px;
 	border-radius: 5px;
 	backdrop-filter: blur(10px);
