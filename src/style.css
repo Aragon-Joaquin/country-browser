@@ -35,14 +35,27 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
+	--Montserrat: 'Montserrat', system-ui, Avenir, Helvetica, Arial, sans-serif;
+	--Default: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+		'Helvetica Neue', sans-serif;
+}
+
+.light-mode {
 	--black: #1a1a1a;
 	--dark-gray: #4e4e4e;
 	--light-gray: #ebebeb;
 	--white: #fcfcfc;
 
-	--Montserrat: 'Montserrat', system-ui, Avenir, Helvetica, Arial, sans-serif;
-	--Default: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-		'Helvetica Neue', sans-serif;
+	--template_shadows: 0, 0, 0;
+}
+
+.dark-mode {
+	--black: #fcfcfc;
+	--dark-gray: #ebebeb;
+	--light-gray: #4e4e4e;
+	--white: #1a1a1a;
+
+	--template_shadows: 100, 100, 100;
 }
 
 body {
@@ -50,6 +63,8 @@ body {
 	color: var(--black);
 	display: flex;
 	flex-direction: column;
+	transition: background-color 0.3s, color 0.3s;
+
 	& > #app-main {
 		flex: 1;
 	}
@@ -82,11 +97,6 @@ select {
 	font-family: var(--Default);
 	color: var(--black);
 	font-size: 1.1rem;
-	transition: background-color 0.3s ease;
-
-	&:hover {
-		background-color: var(--white);
-	}
 }
 
 h1,

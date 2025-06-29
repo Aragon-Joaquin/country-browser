@@ -1,21 +1,52 @@
 #app-header {
+	position: relative;
 	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 30px;
 
-	& > .logo-container {
+	& > .header-nav {
+		z-index: 10;
+		height: 50px;
+		width: 100%;
+		position: fixed;
 		display: flex;
 		flex-direction: row;
+		justify-content: space-around;
 		align-items: center;
+		background: rgba(0, 0, 0, 0.1);
+		border-radius: 0px 0px 20px 20px;
+		backdrop-filter: blur(10px);
+		right: 0;
+		padding: 0 100px;
+
+		& > .logo-container {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			gap: 5px;
+
+			& > img {
+				width: 40px;
+				height: 40px;
+			}
+
+			& > h6 {
+				margin: 0;
+			}
+		}
 	}
 }
 
-.header-nav {
-	& > ul {
-		display: flex;
-		flex-direction: row;
-		list-style: none;
-		gap: 10px;
+.nav-list {
+	padding: 0;
+	display: flex;
+	flex-direction: row;
+	list-style: none;
+	gap: 10px;
+
+	& > li {
+		text-align: center;
 	}
 }

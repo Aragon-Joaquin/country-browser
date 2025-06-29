@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<link rel="icon" type="image/svg+xml" href="/logo.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Country Browser</title>
 
@@ -10,23 +10,22 @@
 	</head>
 	<body>
 		<header id="app-header">
-			<span class="logo-container">
-				<img src="/vite.svg" alt="Logo" class="logo" />
-				<h6 class="header-title">Country Browser</h6>
-			</span>
 			<nav class="header-nav">
+				<span class="logo-container">
+					<img src="/logo.ico" alt="Logo" class="logo" />
+					<h6 class="header-title">Country Browser</h6>
+				</span>
 				<ul class="nav-list">
 					<li><a href="/">Home</a></li>
 					<li><a href="/countries">Countries</a></li>
 					<li><a href="/about">About</a></li>
 					<li><a href="/contact">Contact</a></li>
 				</ul>
+				<span class="scheme-switcher">
+					<input type="text" placeholder="Search Country..." />
+					<button id="change-mode"><img src="/svg/bulb-off.svg" alt="Dark mode" /></button>
+				</span>
 			</nav>
-
-			<span>
-				<input type="text" placeholder="Search Country..." />
-				<button>dark mode</button>
-			</span>
 		</header>
 
 		<main id="app-main">
