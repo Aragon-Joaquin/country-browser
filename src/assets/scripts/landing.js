@@ -1,7 +1,7 @@
 import { CONTINENT_SUBREGIONS, CONTINENTS } from '../../constants'
-import country from '../../mocks/country.json'
-import { $, debouncer, sanitizeOutput } from '../../utils'
-// import {MakeApiCall, HASHMAP_ENDPOINTS} from '../../services'
+import { HASHMAP_ENDPOINTS, MakeApiCall } from '../../services'
+import { $, debouncer } from '../../utils'
+import { RenderCountryResult, RenderCountrySkeleton } from './components'
 
 //! selectors
 const continentSelect = $('#continent-select')
@@ -10,14 +10,19 @@ const countrySearcher = $('#country-search')
 
 const searchResults = $('#search-results')
 
+//? utils
+const ResetSearchResults = (val) => searchResults.replaceChildren(val)
+
 //! handleing when chosing in form
 continentSelect.addEventListener('change', ({ target }) => {
 	const continent = CONTINENTS[target?.value.toUpperCase() ?? '']
-	if (!continent) return
 
 	// we clean every children except the first one
 	subregionSelect.replaceChildren(subregionSelect.firstElementChild)
 	subregionSelect.selectedIndex = 0
+	ResetSearchResults([])
+
+	if (!continent) return
 
 	Object.values(CONTINENT_SUBREGIONS[continent]).forEach((el) => {
 		const option = document.createElement('option')
@@ -29,34 +34,35 @@ continentSelect.addEventListener('change', ({ target }) => {
 })
 
 //! making the http request
+
 countrySearcher.addEventListener(
 	'input',
 	debouncer(async ({ target }) => {
-		if (!target?.value) return
-		const data = Array(7).fill(country)
+		if (!target?.value) return ResetSearchResults([])
 
-		const docFragment = new DocumentFragment()
-		data?.forEach((el) => {
-			const element = document.createElement('span')
-			element.classList.add('country-result')
-
-			const [countryName, cca3] = [sanitizeOutput(el.name.common), sanitizeOutput(el.cca3)]
-
-			element.insertAdjacentHTML(
-				'afterbegin',
-				`
-				<img src='${el.flags.svg}' alt='Flag of ${countryName}' class='country-flag'/>
-				<a class='country-info' href='/country/?q=${cca3}'>
-					<h6 class='country-name'>${countryName}</h6>
-					<p class='country-capitals'>${sanitizeOutput(el?.capital.join(' | '))}</p>
-				</a>
-				<p class='country-cca3'>${cca3}</p>
-				`
-			)
-
-			docFragment.append(element)
-		})
-
-		searchResults.append(docFragment)
+		ResetSearchResults(RenderCountrySkeleton(7))
+		const data = await MakeApiCall(HASHMAP_ENDPOINTS.NAME, target.value)
+		ResetSearchResults(RenderCountryResult(data))
 	})
 )
+
+subregionSelect.addEventListener(
+	'change',
+	debouncer(async ({ target }) => {
+		if (!target?.value) return ResetSearchResults([])
+
+		ResetSearchResults(RenderCountrySkeleton(7))
+		const data = await MakeApiCall(HASHMAP_ENDPOINTS.SUBREGION, target.value)
+		ResetSearchResults(RenderCountryResult(data))
+	})
+)
+
+//! click outside to close
+document.addEventListener('click', (event) => {
+	const isClosed = event.composedPath().includes(searchResults)
+
+	if (isClosed || searchResults.children.length != 0) return
+
+	//TODO(#1): Make the searchResults disappear when clicking outside
+	console.log('clicked outside')
+})

@@ -24,9 +24,10 @@ export async function MakeApiCall(end, val, params = '', fetchOps = {}) {
 			})
 		).json()
 
-		console.log(ADAPTER_HASHMAP[end](res))
+		if (end in ADAPTER_HASHMAP) return ADAPTER_HASHMAP[end](res)
+		return res
 	} catch (error) {
-		//todo: make warning message
+		//TODO(#3): make warning message
 		console.error(error)
 	}
 }

@@ -1,8 +1,8 @@
 @import url('assets/styles/reset.css');
 
 /* header + footer styles! */
-/* @import url('assets/styles/footer.css'); */
 @import url('assets/styles/header.css');
+@import url('assets/styles/footer.css');
 
 @font-face {
 	font-family: 'Montserrat';
@@ -83,7 +83,6 @@ body {
 	}
 }
 
-/* finish this */
 select {
 	& > option {
 		background-color: var(--white);
@@ -131,6 +130,64 @@ select {
 	}
 }
 
+/* .loading-throbber {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	& > .svg-loading {
+		width: 50px;
+		animation: spin 1s linear infinite;
+	}
+
+	& > .title-loading {
+		& > h5 {
+			display: flex;
+			align-items: baseline;
+			margin: 0;
+
+			& > p {
+				font-size: 2rem;
+			}
+		}
+	}
+} */
+
+.skeleton,
+.skeleton-heading,
+.skeleton-p {
+	opacity: 0.8;
+	animation: skeleton-loading 1s linear infinite alternate !important;
+	outline: none !important;
+	border: none !important;
+	border-radius: 2px;
+	width: fit-content;
+	color: transparent !important;
+	caret-color: transparent !important;
+	text-shadow: none !important;
+	pointer-events: none;
+}
+
+.skeleton-heading {
+	padding: 0px 50px !important;
+	height: 1.5rem !important;
+}
+.skeleton-p {
+	padding: 0px 0px !important;
+	height: 1rem !important;
+}
+
+@keyframes skeleton-loading {
+	0% {
+		background-color: hsl(200, 20%, 70%);
+	}
+	s1 100% {
+		background-color: hsl(200, 20%, 95%);
+	}
+}
+
+/*! generic styles */
 h1,
 h2,
 h3,
@@ -169,4 +226,15 @@ h5 {
 h6 {
 	font-size: 1.25rem;
 	margin-bottom: 0.4rem;
+}
+
+/*! generic animations */
+
+@keyframes spin {
+	from {
+		rotate: 0deg;
+	}
+	to {
+		rotate: 360deg;
+	}
 }
