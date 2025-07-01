@@ -34,3 +34,19 @@ export const debouncer = (cb, wait = 1000) => {
  * @returns TRUE if window DOESN'T exist
  */
 export const IsWindowUndefined = () => typeof globalThis === 'undefined' || typeof window === 'undefined'
+
+/**
+ * @description prevents XSS attacks by replacing dangerous symbols like '<', '>', '&', '\' in their html form!
+ * just making sure :P (+ eliminating common escape sequences like \n or \r)
+ *
+ * @param {string} val the api response
+ * @returns the sanitized string
+ */
+export const sanitizeOutput = (val) =>
+	String.raw`${val
+		.replace(/\&/g, '&amp;')
+		.replace(/\</g, '&lt;')
+		.replace(/\>/g, '&gt;')
+		.replace(/\"/g, '&quot;')
+		.replace(/\'/g, '&#x27;')
+		.replace(/\//g, '&#x2F;')}`

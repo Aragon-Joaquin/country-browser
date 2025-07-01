@@ -15,6 +15,7 @@ body {
 }
 
 .image-container {
+	z-index: 10;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -189,6 +190,64 @@ body {
 			rotate: 0deg;
 			cursor: pointer;
 		}
+	}
+}
+
+/*! fetch responses */
+#search-results {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	height: fit-content;
+	max-height: 300px;
+	overflow-y: scroll;
+	width: 100%;
+	transform: translateY(100%);
+	border-radius: 10px;
+
+	-ms-overflow-style: none; /* Internet Explorer 10+ */
+	scrollbar-width: none; /* Firefox, Safari 18.2+, Chromium 121+ */
+	&::-webkit-scrollbar {
+		display: none; /* Older Safari and Chromium */
+	}
+}
+
+.country-result {
+	display: flex;
+	align-items: center;
+	position: relative;
+	background-color: rgba(var(--template_shadows_opp), 0.8);
+	color: var(--pure-white);
+	padding: 5px;
+
+	& > .country-flag {
+		height: 40px;
+		width: auto;
+		object-fit: contain;
+		aspect-ratio: 16/9;
+	}
+
+	& > .country-info {
+		text-decoration: none;
+		color: inherit;
+		& > .country-name {
+			padding: 0;
+			margin: 0;
+		}
+
+		& > .country-capitals {
+			opacity: 0.8;
+		}
+	}
+
+	& > .country-cca3 {
+		position: absolute;
+		right: 0;
+		top: 0;
+		transform: translate(-25%, 25%);
+		font-weight: 500;
+		color: var(--pure-white);
+		opacity: 0.8;
 	}
 }
 
