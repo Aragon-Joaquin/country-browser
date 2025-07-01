@@ -23,14 +23,16 @@
 				</ul>
 				<span class="scheme-switcher">
 					<input type="text" class="secondary-button" placeholder="Search Country..." />
-					<button id="change-mode"><img src="/svg/bulb-off.svg" alt="Dark mode" /></button>
+					<button id="change-mode">
+						<img src="/svg/bulb-off.svg" alt="Dark mode" />
+					</button>
 				</span>
 			</nav>
 		</header>
 
 		<main id="app-main">
-			<div class="image-container">
-				<form class="search-form">
+			<section class="image-container">
+				<form class="search-form" autocomplete="off">
 					<label for="continent-select"
 						>Filter by Continent
 						<select id="continent-select">
@@ -64,9 +66,10 @@
 
 					<!-- <button type="submit">Search</button> -->
 				</form>
-			</div>
+				<div id="search-results"></div>
+			</section>
 
-			<div class="hero-section">
+			<section class="hero-section">
 				<span class="hero-title">
 					<h2>Discover Countries Around the <strong>World!</strong></h2>
 					<p>
@@ -81,7 +84,7 @@
 					<img src="/imgs/capital2.webp" alt="image of the Arch of Constantine, Rome" />
 					<img src="/imgs/capital3.webp" alt="image of Camlica Tower, Coast of Istanbul" />
 				</div>
-			</div>
+			</section>
 		</main>
 
 		<footer id="app-footer"></footer>
