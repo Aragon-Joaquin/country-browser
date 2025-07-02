@@ -76,18 +76,32 @@ body {
 	color: var(--black);
 	display: flex;
 	flex-direction: column;
+	width: calc(100dvw - 20%);
+	min-width: 1000px;
+	height: 100dvh;
+	margin: auto;
+
 	transition: background-color 0.3s, color 0.3s;
 
 	& > #app-main {
+		margin-top: 100px;
 		flex: 1;
 	}
 }
 
-select {
-	& > option {
-		background-color: var(--white);
-		color: var(--black);
-	}
+.visible,
+.invisible {
+	transition: opacity 0.4s ease-in-out;
+}
+
+.visible {
+	opacity: 1;
+	pointer-events: inherit;
+}
+
+.invisible {
+	opacity: 0;
+	pointer-events: none;
 }
 
 .primary-button,
@@ -129,30 +143,6 @@ select {
 		background: 0;
 	}
 }
-
-/* .loading-throbber {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-
-	& > .svg-loading {
-		width: 50px;
-		animation: spin 1s linear infinite;
-	}
-
-	& > .title-loading {
-		& > h5 {
-			display: flex;
-			align-items: baseline;
-			margin: 0;
-
-			& > p {
-				font-size: 2rem;
-			}
-		}
-	}
-} */
 
 .skeleton,
 .skeleton-heading,
@@ -228,13 +218,9 @@ h6 {
 	margin-bottom: 0.4rem;
 }
 
-/*! generic animations */
-
-@keyframes spin {
-	from {
-		rotate: 0deg;
-	}
-	to {
-		rotate: 360deg;
+select {
+	& > option {
+		background-color: var(--white);
+		color: var(--black);
 	}
 }

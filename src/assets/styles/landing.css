@@ -1,12 +1,4 @@
-body {
-	width: calc(100dvw - 20%);
-	min-width: 1000px;
-	height: 100dvh;
-	margin: auto;
-}
-
 #app-main {
-	margin-top: 100px;
 	display: flex;
 	gap: 30px;
 	flex-direction: column;

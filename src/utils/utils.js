@@ -39,14 +39,18 @@ export const IsWindowUndefined = () => typeof globalThis === 'undefined' || type
  * @description prevents XSS attacks by replacing dangerous symbols like '<', '>', '&', '\' in their html form!
  * just making sure :P (+ eliminating common escape sequences like \n or \r)
  *
- * @param {string} val the api response
+ * @param {string | null} val the api response
  * @returns the sanitized string
  */
 export const sanitizeOutput = (val) =>
-	String.raw`${val
-		.replace(/\&/g, '&amp;')
-		.replace(/\</g, '&lt;')
-		.replace(/\>/g, '&gt;')
-		.replace(/\"/g, '&quot;')
-		.replace(/\'/g, '&#x27;')
-		.replace(/\//g, '&#x2F;')}`
+	!!val && typeof val === 'string'
+		? String.raw`${val
+				.replace(/\&/g, '&amp;')
+				.replace(/\</g, '&lt;')
+				.replace(/\>/g, '&gt;')
+				.replace(/\"/g, '&quot;')
+				.replace(/\'/g, '&#x27;')
+				.replace(/\//g, '&#x2F;')}`
+		: null
+
+export const ImageFallback = () => '/imgs/not-found.webp'

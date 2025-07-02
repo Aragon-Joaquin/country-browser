@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/logo.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Country Browser</title>
+
+		<link rel="stylesheet" href="/src/assets/styles/browse.css" />
+	</head>
+	<body>
+		<header id="app-header">
+			<nav class="header-nav">
+				<span class="logo-container">
+					<img src="/logo.ico" alt="Logo" class="logo" />
+					<h6 class="header-title">Country Browser</h6>
+				</span>
+				<ul class="nav-list">
+					<li><a href="/">Home</a></li>
+					<li><a href="#">Countries</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+				<span class="scheme-switcher">
+					<input type="text" class="secondary-button" placeholder="Search Country..." />
+					<button id="change-mode">
+						<img src="/svg/bulb-off.svg" alt="Dark mode" />
+					</button>
+				</span>
+			</nav>
+		</header>
+
+		<!-- loading until data is fetched -->
+		<span id="loading-throbber">
+			<img src="/svg/throbber.svg" alt="Loading..." class="svg-loading" />
+			<h5 class="title-loading">Loading...</h5>
+		</span>
+
+		<main id="app-main"></main>
+
+		<footer id="app-footer"></footer>
+	</body>
+	<script type="module" src="/src/main.js"></script>
+	<script type="module" src="/src/assets/scripts/browse.js"></script>
+</html>

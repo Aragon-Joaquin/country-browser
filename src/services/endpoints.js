@@ -15,7 +15,7 @@ export const HASHMAP_ENDPOINTS = Object.freeze({
 
 /**
  * @param { typeof HASHMAP_ENDPOINTS[keyof typeof HASHMAP_ENDPOINTS]} endpoint use HASHMAP_ENDPOINTS to get the endpoint
- * @param {string} val the dynamic route follow up after the endpoint, e.x.= /country/Argentina
+ * @param {string} val the dynamic route follow up after the endpoint, e.x.= /browse/Argentina
  * @param {string} params optional parameters to append
  *
  * @example

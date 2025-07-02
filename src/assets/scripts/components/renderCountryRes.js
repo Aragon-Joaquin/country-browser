@@ -3,7 +3,7 @@
  * @returns {DocumentFragment} the doc fragment which contains the HTML
  */
 
-import { sanitizeOutput } from '../../../utils'
+import { ImageFallback } from '../../../utils'
 
 export function RenderCountryResult(data) {
 	const docFragment = new DocumentFragment()
@@ -11,17 +11,15 @@ export function RenderCountryResult(data) {
 		const element = document.createElement('span')
 		element.classList.add('country-result')
 
-		const [countryName, cca3] = [sanitizeOutput(el.name.common), sanitizeOutput(el.cca3)]
-
 		element.insertAdjacentHTML(
 			'afterbegin',
 			`
-				<img src='${el?.flags?.svg || '/imgs/not-found.webp'}' alt='Flag of ${countryName}' class='country-flag'/>
-				<a class='country-info' href='/country/?q=${cca3}'>
-					<h6 class='country-name'>${countryName}</h6>
-					<p class='country-capitals'>${sanitizeOutput(el?.capital.join(' | '))}</p>
+				<img src='${el?.flags?.svg ?? ImageFallback()}' alt='Flag of ${el.name.common}' class='country-flag'/>
+				<a class='country-info' href='/pages/browse?q=${el?.cca3}'>
+					<h6 class='country-name'>${el.name.common}</h6>
+					<p class='country-capitals'>${el?.capital.join(' | ')}</p>
 				</a>
-				<p class='country-cca3'>${cca3}</p>
+				<p class='country-cca3'>${el?.cca3}</p>
 				`
 		)
 

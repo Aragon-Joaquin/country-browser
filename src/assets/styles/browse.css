@@ -1,0 +1,92 @@
+#loading-throbber {
+	position: fixed;
+	width: 100dvw;
+	height: 100dvh;
+	background-color: var(--white);
+	transform: translateX(-10%);
+	z-index: 20;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+
+	transition: opacity 0.3s ease-in-out;
+
+	& > .svg-loading {
+		width: 50px;
+		animation: spin 1s linear infinite;
+		filter: var(--filter-invert);
+	}
+
+	& > .title-loading {
+		display: flex;
+		align-items: baseline;
+		margin: 0;
+	}
+}
+
+@keyframes spin {
+	from {
+		rotate: 0deg;
+	}
+	to {
+		rotate: 360deg;
+	}
+}
+
+/*! country props  */
+
+.country-header {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column-reverse;
+	gap: 10px;
+
+	background-color: rgba(var(--template_shadows_opp), 0.2);
+	padding: 30px 0px;
+	border-radius: 30px;
+
+	& > h1 {
+		text-decoration: underline;
+		margin: 0;
+	}
+
+	& > .FLAG-country {
+		width: 300px;
+		height: auto;
+		border-radius: 4px;
+	}
+
+	& > .COA-country {
+		position: absolute;
+		right: 0;
+		top: 0;
+		height: 100px;
+		width: auto;
+		transform: translate(-20%, 10%);
+		transition: scale 0.3s ease-in-out;
+
+		&:hover {
+			scale: 1.05;
+			cursor: pointer;
+		}
+	}
+}
+
+.general-info {
+	min-height: 300px;
+	max-height: 300px;
+
+	margin-top: 30px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.list-of-translations {
+	height: 100%;
+	overflow-y: auto;
+}
