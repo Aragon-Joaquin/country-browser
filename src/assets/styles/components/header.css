@@ -111,6 +111,7 @@
 
 .scheme-switcher {
 	display: flex;
+	position: relative;
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
@@ -136,6 +137,44 @@
 
 		& > img {
 			filter: var(--filter-invert);
+		}
+	}
+}
+
+#input-result {
+	position: absolute;
+	max-height: 400px;
+	width: 400px;
+	scale: 1;
+	overflow-y: scroll;
+	top: 100%;
+	left: 0;
+
+	-ms-overflow-style: none; /* Internet Explorer 10+ */
+	scrollbar-width: none; /* Firefox, Safari 18.2+, Chromium 121+ */
+	&::-webkit-scrollbar {
+		display: none; /* Older Safari and Chromium */
+	}
+
+	& > .country-result {
+		width: 200px;
+
+		& .country-flag {
+			width: 50px;
+			height: auto;
+		}
+
+		& > .country-info {
+			& > h6 {
+				font-size: 0.9em;
+			}
+			& > p {
+				font-size: 0.7em;
+			}
+		}
+
+		& > .country-cca3 {
+			font-size: 0.7em;
 		}
 	}
 }
@@ -220,7 +259,7 @@
 
 		& > #change-mode {
 			position: absolute !important;
-			top: 0;
+			top: -95dvh;
 			right: 0;
 
 			transform: translate(-25%, 25%) scale(1) !important;
@@ -241,5 +280,12 @@
 				opacity: 1 !important;
 			}
 		}
+	}
+
+	#input-result {
+		top: 0;
+		display: flex;
+		flex-direction: column-reverse;
+		transform: translate(-5%, -100%);
 	}
 }

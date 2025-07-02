@@ -1,5 +1,8 @@
 import { COUNTRY_ADAPTER } from '../../../adapter/CountryAdapter'
-import { ImageFallback } from '../../../utils'
+import { ImageFallback, capitalizeFirstLetter } from '../../../utils'
+
+import { CUSTOM_ERROR } from '../../../errors/customError'
+import { ErrorPopup } from '../../scripts/components'
 
 /**
  * @param {ReturnType<typeof COUNTRY_ADAPTER>} adaptedData the data received from the api adapter
@@ -13,7 +16,7 @@ export function RenderBrowseCountry(adaptedData) {
 	const data = adaptedData?.at(0) ?? null
 
 	//TODO(#6): check if this condition is even possible to get
-	if (!data) return
+	if (!data) return ErrorPopup(new CUSTOM_ERROR(400, 'Country does not exists'))
 
 	const { common, official } = data.name
 
@@ -33,6 +36,13 @@ export function RenderBrowseCountry(adaptedData) {
                         src="${data.coatOfArms?.svg ?? ImageFallback()}"
                         alt="Coat of Arms of ${common}"
                     />
+
+                    <span class="country-borders">
+                        <h6>Borders: </h6>
+                        <div class='borders'>
+                            ${data.borders?.map((brdr) => `<a href='/pages/browse?q=${brdr}'>${brdr}</a>`).join('')}
+                        </div>
+                    </span>
             </header>
                 
             <section class="general-info">
@@ -49,14 +59,28 @@ export function RenderBrowseCountry(adaptedData) {
 													.map((c) => `${c.name} (${c.symbol})`)
 													.join(', ')}</span></li>
                         <li><strong>Timezones:</strong> <span>${data.timezones.join(', ')}</span></li>
-                        <li><strong>UN Member:</strong> <span>${data.unMember ? 'Yes' : 'No'}</span></li>
                         <li><strong>Independent:</strong> <span>${data.independent ? 'Yes' : 'No'}</span></li>
+
                     </ul>
                 </div>
 
                 <div>
-                    <h3>idk:</h3>
+                    <h3>Unnecessary Details:</h3>
+                    <ul class="list-of-unnecessary">
+                        <li><strong>Region:</strong> <span>${data.region}</span></li>
+                        <li><strong>Coordinates:</strong> <span>${data.latlng?.join(', ')}</span></li>
+                        <li><strong>Start of Week:</strong> <span>${capitalizeFirstLetter(data.startOfWeek)}</span></li>
+                        <li><strong>Driving Side:</strong> <span>${capitalizeFirstLetter(data.car?.side)}</span></li>
+                        <li><strong>Top Level Domain:</strong> <span>${data.tld?.join(', ')}</span></li>
+                        <li><strong>Calling Codes:</strong> <span>${data.idd?.root}${data.idd?.suffixes?.join(', ')}
+												</span></li>
+                        <li><strong>FIFA Code:</strong> <span>${data.fifa}</span></li>
+                        <li><strong>Maps:</strong> <a href="${
+													data.maps?.googleMaps ?? '#'
+												}" target="_blank">Google Maps</a></li>
+                        <li><strong>UN Member:</strong> <span>${data.unMember ? 'Yes' : 'No'}</span></li>
 
+                    </ul>
                 </div>
             </section>`
 	)

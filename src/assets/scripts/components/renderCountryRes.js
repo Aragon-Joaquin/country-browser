@@ -1,10 +1,9 @@
+import { ImageFallback } from '../../../utils'
+
 /**
  * @param {ReturnType<typeof ADAPTER_HASHMAP[HASHMAP_ENDPOINTS.NAME]>[]} data This is the result from the api call of countries! The one which got adapted
  * @returns {DocumentFragment} the doc fragment which contains the HTML
  */
-
-import { ImageFallback } from '../../../utils'
-
 export function RenderCountryResult(data) {
 	const docFragment = new DocumentFragment()
 	data?.forEach((el) => {

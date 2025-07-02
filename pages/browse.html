@@ -7,6 +7,7 @@
 		<title>Country Browser</title>
 
 		<link rel="stylesheet" href="/src/assets/styles/browse.css" />
+		<link rel="stylesheet" href="/src/style.css" />
 	</head>
 	<body>
 		<header id="app-header">
@@ -25,7 +26,9 @@
 						<li><a href="#">Contact</a></li>
 					</ul>
 					<span class="scheme-switcher">
-						<input id="scheme-switcher" type="text" class="primary-button" placeholder="Search Country..." />
+						<input id="input-switcher" type="text" class="primary-button" placeholder="Search Country..." />
+						<span id="input-result"></span>
+
 						<button id="change-mode">
 							<img src="/svg/bulb-off.svg" alt="Dark mode" />
 						</button>

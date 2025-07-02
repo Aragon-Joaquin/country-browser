@@ -47,3 +47,13 @@ export function ListenColorScheme() {
 		return changeColor(scheme)
 	})
 }
+
+/**
+ * @description Capitalizes the first letter of a word you pass by
+ * @param {string} val The string word
+ * @returns {string}
+ *
+ * @example
+ * capitalizeFirstLetter("hello world!") // Hello world!
+ */
+export const capitalizeFirstLetter = (val) => String(val).charAt(0).toUpperCase() + String(val).slice(1)

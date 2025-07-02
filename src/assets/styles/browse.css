@@ -1,3 +1,7 @@
+body {
+	overflow: auto !important;
+}
+
 #loading-throbber {
 	position: fixed;
 	width: 100dvw;
@@ -78,16 +82,128 @@
 	}
 }
 
+.country-borders {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	top: 0;
+	left: 0;
+	transform: translate(20%, 10%);
+
+	& > h6 {
+		margin: 0;
+	}
+
+	& > .borders {
+		display: flex;
+		flex-direction: column;
+		gap: 10px 0px;
+
+		& > a {
+			width: fit-content !important;
+			text-decoration: none;
+			transition: margin 0.3s ease-in-out;
+
+			&:hover {
+				margin-left: 5px;
+				scale: 1.05;
+			}
+		}
+	}
+}
+
 .general-info {
 	min-height: 300px;
-	max-height: 300px;
-
 	margin-top: 30px;
 	display: flex;
 	justify-content: space-around;
+	gap: 0px;
+	background: rgba(var(--template_shadows_opp), 0.08);
+	border-radius: 20px;
+	padding: 30px 20px;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
 }
 
-.list-of-translations {
-	height: 100%;
-	overflow-y: auto;
+.list-of-unnecessary,
+.list-of-info {
+	list-style: none;
+	padding: 0 10px;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	background: var(--white);
+	border-radius: 12px;
+	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+	border-left: 4px solid rgba(var(--template_shadows), 0.5);
+
+	& > li {
+		display: flex;
+		padding: 5px;
+		border-bottom: 1px solid rgba(var(--template_shadows), 0.3);
+		font-size: 1rem;
+		color: var(--text-color);
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		& > strong {
+			width: 150px;
+			display: inline-block;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.list-of-unnecessary,
+	.list-of-info {
+		gap: 10px;
+		width: 300px !important;
+	}
+
+	.country-borders {
+		& > h6 {
+			font-size: 1rem;
+		}
+	}
+}
+
+@media (max-width: 800px) {
+	.general-info {
+		justify-content: center;
+		flex-direction: column;
+		gap: 40px 0px;
+
+		& > div {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+		}
+	}
+
+	.list-of-unnecessary,
+	.list-of-info {
+		gap: 10px;
+		width: 400px;
+	}
+
+	.country-header {
+		& > .FLAG-country {
+			width: 200px !important;
+		}
+
+		& > h1 {
+			font-size: 2rem;
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.country-article {
+		margin-top: 70px;
+	}
 }

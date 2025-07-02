@@ -1,6 +1,4 @@
-// import { HASHMAP_ENDPOINTS, MakeApiCall } from '../../services'
-import { COUNTRY_ADAPTER } from '../../adapter/CountryAdapter'
-import cJSON from '../../mocks/country.json'
+import { HASHMAP_ENDPOINTS, MakeApiCall } from '../../services'
 import { $ } from '../../utils'
 import { RenderBrowseCountry } from './components/renderBrowserCountry'
 
@@ -15,7 +13,7 @@ window.addEventListener(
 		const throbber = $('#loading-throbber')
 		const mainApp = $('#app-main')
 
-		const data = COUNTRY_ADAPTER([cJSON])
+		const data = await MakeApiCall(HASHMAP_ENDPOINTS.CODE, countryCode)
 		throbber.classList.add('invisible')
 
 		mainApp.appendChild(RenderBrowseCountry(data))
