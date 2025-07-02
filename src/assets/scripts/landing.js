@@ -61,8 +61,6 @@ subregionSelect.addEventListener(
 document.addEventListener('click', (event) => {
 	const isClosed = event.composedPath().includes(searchResults)
 
-	if (isClosed || searchResults.children.length != 0) return
-
-	//TODO(#1): Make the searchResults disappear when clicking outside
-	console.log('clicked outside')
+	if (!isClosed && !searchResults?.children?.length) return
+	ResetSearchResults([])
 })

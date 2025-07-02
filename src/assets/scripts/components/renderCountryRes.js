@@ -14,7 +14,9 @@ export function RenderCountryResult(data) {
 		element.insertAdjacentHTML(
 			'afterbegin',
 			`
-				<img src='${el?.flags?.svg ?? ImageFallback()}' alt='Flag of ${el.name.common}' class='country-flag'/>
+				<a href='/pages/browse?q=${el?.cca3}'>
+					<img src='${el?.flags?.svg ?? ImageFallback()}' alt='Flag of ${el.name.common}' class='country-flag'/>
+				</a>
 				<a class='country-info' href='/pages/browse?q=${el?.cca3}'>
 					<h6 class='country-name'>${el.name.common}</h6>
 					<p class='country-capitals'>${el?.capital.join(' | ')}</p>

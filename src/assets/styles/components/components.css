@@ -1,0 +1,98 @@
+.visible,
+.invisible {
+	transition: opacity 0.4s ease-in-out;
+}
+
+.visible {
+	opacity: 1;
+	pointer-events: inherit;
+}
+
+.invisible {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.primary-button,
+.secondary-button,
+input,
+select {
+	width: 180px;
+	height: 40px;
+	border: 0;
+	background-color: var(--white);
+	color: var(--black);
+	font-family: var(--Default);
+	font-size: 16px;
+	padding: 5px;
+	border-radius: 5px;
+	border: 2px solid var(--light-gray);
+	cursor: pointer;
+}
+
+.primary-button {
+	transition: border-color 0.2s ease-in-out;
+	outline: none;
+
+	&:hover {
+		filter: brightness(110%);
+	}
+
+	&:focus {
+		border-color: var(--primary-color);
+		background-color: var(--secondary-color);
+	}
+}
+
+.secondary-button {
+	border-color: rgba(var(--template_shadows), 0.5) !important;
+	font-family: sans-serif;
+	outline: none;
+	border-radius: 16px;
+	padding-left: 10px;
+	background: rgba(var(--template_shadows_opp), 0.1);
+	color: var(--dark-gray);
+	border: 1px solid rgba(var(--template_shadows), 0.4);
+	transition: background 0.3s ease-in-out;
+
+	&:hover {
+		filter: brightness(110%);
+	}
+
+	&:focus {
+		background: 0;
+	}
+}
+
+.skeleton,
+.skeleton-heading,
+.skeleton-p {
+	opacity: 0.8;
+	animation: skeleton-loading 1s linear infinite alternate !important;
+	outline: none !important;
+	border: none !important;
+	border-radius: 2px;
+	width: fit-content;
+	color: transparent !important;
+	caret-color: transparent !important;
+	text-shadow: none !important;
+	pointer-events: none;
+}
+
+.skeleton-heading {
+	padding: 0px 50px !important;
+	height: 1.5rem !important;
+}
+.skeleton-p {
+	padding: 0px 0px !important;
+	height: 1rem !important;
+}
+
+@keyframes skeleton-loading {
+	0% {
+		background-color: hsl(200, 20%, 70%);
+	}
+	s1 100% {
+		background-color: hsl(200, 20%, 95%);
+	}
+}

@@ -213,12 +213,17 @@
 	padding: 5px;
 	gap: 10px;
 
-	& > .country-flag {
+	& > a > .country-flag {
 		height: 40px;
 		width: auto;
 		border-radius: 5px;
 		object-fit: cover;
 		aspect-ratio: 16/9;
+		transition: scale 0.1s ease-in-out;
+
+		&:hover {
+			scale: 1.05;
+		}
 	}
 
 	& > .country-info {
@@ -228,8 +233,27 @@
 		text-decoration: none;
 		color: inherit;
 		& > .country-name {
+			position: relative;
+			display: inline-flex;
+			overflow: hidden;
 			padding: 0;
 			margin: 0;
+
+			&::after {
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				height: 2px;
+				transform: translateX(calc(-100% - 1px));
+				background: var(--black);
+				transition: transform 0.3s ease-in-out;
+			}
+
+			&:hover::after {
+				transform: translateX(0);
+			}
 		}
 
 		& > .country-capitals {
@@ -272,13 +296,25 @@
 }
 
 @media (max-width: 480px) {
+	.hero-images {
+		& > img {
+			height: 200px !important;
+			width: 200px !important;
+			padding: 10px 10px 25px 10px !important;
+		}
+	}
 }
 
 @media (max-width: 768px) {
 }
 
 @media (max-width: 1024px) {
+	#app-main {
+		width: 100% !important;
+		justify-content: center !important;
+	}
 	.image-container {
+		width: 100% !important;
 		height: fit-content;
 	}
 
@@ -324,7 +360,7 @@
 			grid-column: 1 / 3;
 			grid-row: 3;
 			align-self: center;
-			justify-self: stretch;
+			justify-self: center;
 		}
 	}
 

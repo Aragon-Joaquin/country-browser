@@ -1,5 +1,7 @@
 import { COUNTRY_ADAPTER } from '../adapter'
+import { ErrorPopup } from '../assets/scripts/components'
 import { ABORT_CONTROLLER_TIMEOUT } from '../constants'
+import { CUSTOM_ERROR } from '../errors/customError'
 import { CreateEndpoint } from './endpoints'
 
 /**
@@ -16,18 +18,16 @@ import { CreateEndpoint } from './endpoints'
 export async function MakeApiCall(end, val, params = '', fetchOps = {}) {
 	const endpoint = CreateEndpoint(end, val, params)
 	try {
-		const res = await (
-			await fetch(endpoint, {
-				method: 'GET',
-				signal: new AbortController(ABORT_CONTROLLER_TIMEOUT).signal,
-				...(fetchOps != null && fetchOps)
-			})
-		).json()
+		const res = await fetch(endpoint, {
+			method: 'GET',
+			signal: new AbortController(ABORT_CONTROLLER_TIMEOUT).signal,
+			...(fetchOps != null && fetchOps)
+		})
 
-		return COUNTRY_ADAPTER(res)
+		if (res?.status == 404 || !res.ok) throw new CUSTOM_ERROR(res.status, 'Error while fetching data')
+
+		return COUNTRY_ADAPTER(await res.json())
 	} catch (error) {
-		//TODO(#3): make warning message
-		console.error(error)
-		return null
+		return ErrorPopup(error)
 	}
 }
