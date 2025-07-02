@@ -1,8 +1,13 @@
-(this is not a clone.)
+> [!NOTE]  
+> done in 5 days.
 
-# Vanilla JS (updating later)
+# Vanilla JS - Country Browser
 
-another boring landing + api full vanilla wooooah!!
+another webpage for my university. (for some reason i cant build the page normally since it deletes most of the code and i been doing this for 8hs straight)
+
+- original design (its horrible)
+- documented (70% of the code)
+- and no dependencies (except of vite)
 
 using this api:
 
