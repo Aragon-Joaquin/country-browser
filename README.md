@@ -12,3 +12,5 @@ another webpage for my university. (for some reason i cant build the page normal
 using this api:
 
 - https://restcountries.com
+
+**and i forgot to tell ya. the webpage looks more horrible using the firefox engine**
