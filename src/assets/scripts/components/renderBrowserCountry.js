@@ -4,6 +4,7 @@ import { ImageFallback, capitalizeFirstLetter } from '../../../utils'
 import { CUSTOM_ERROR } from '../../../errors/customError'
 import { ErrorPopup } from '../../scripts/components'
 
+const MAXIMUM_OF_ELEMENTS = 5
 /**
  * @param {ReturnType<typeof COUNTRY_ADAPTER>} adaptedData the data received from the api adapter
  * @returns {HTMLElement} An HTML Element to then inject into the dom
@@ -54,11 +55,16 @@ export function RenderBrowseCountry(adaptedData) {
                         <li><strong>Capital:</strong> <span>${data.capital?.join(', ')}</span></li>
                         <li><strong>Population:</strong> <span>${data.population?.toLocaleString()}</span></li>
                         <li><strong>Area:</strong> <span>${data.area?.toLocaleString()} km²</span></li>
-                        <li><strong>Languages:</strong> <span>${Object.values(data.languages).join(', ')}</span></li>
+                        <li><strong>Languages:</strong> <span>${Object.values(data.languages)
+													.splice(0, MAXIMUM_OF_ELEMENTS)
+													.join(', ')}</span></li>
                         <li><strong>Currencies:</strong> <span>${Object.values(data.currencies)
+													.splice(0, MAXIMUM_OF_ELEMENTS)
 													.map((c) => `${c.name} (${c.symbol})`)
 													.join(', ')}</span></li>
-                        <li><strong>Timezones:</strong> <span>${data.timezones.join(', ')}</span></li>
+                        <li><strong>Timezones:</strong> <span>${data.timezones
+													.splice(0, MAXIMUM_OF_ELEMENTS)
+													.join(', ')}</span></li>
                         <li><strong>Independent:</strong> <span>${data.independent ? 'Yes' : 'No'}</span></li>
 
                     </ul>
