@@ -80,6 +80,7 @@ body {
 	min-width: 1000px;
 	height: 100dvh;
 	margin: auto;
+	overflow: hidden;
 
 	transition: background-color 0.3s, color 0.3s;
 
@@ -118,11 +119,17 @@ select {
 	padding: 5px;
 	border-radius: 5px;
 	border: 2px solid var(--light-gray);
+	cursor: pointer;
 }
 
 .primary-button {
 	transition: border-color 0.2s ease-in-out;
 	outline: none;
+
+	&:hover {
+		filter: brightness(110%);
+	}
+
 	&:focus {
 		border-color: var(--primary-color);
 		background-color: var(--secondary-color);
@@ -130,14 +137,19 @@ select {
 }
 
 .secondary-button {
+	border-color: rgba(var(--template_shadows), 0.5) !important;
 	font-family: sans-serif;
 	outline: none;
 	border-radius: 16px;
 	padding-left: 10px;
-	background: rgba(var(--template_shadows_opp), 0.2);
+	background: rgba(var(--template_shadows_opp), 0.1);
 	color: var(--dark-gray);
 	border: 1px solid rgba(var(--template_shadows), 0.4);
 	transition: background 0.3s ease-in-out;
+
+	&:hover {
+		filter: brightness(110%);
+	}
 
 	&:focus {
 		background: 0;

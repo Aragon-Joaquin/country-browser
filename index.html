@@ -11,22 +11,26 @@
 	<body>
 		<header id="app-header">
 			<nav class="header-nav">
-				<span class="logo-container">
+				<a class="logo-container" href="/">
 					<img src="/logo.ico" alt="Logo" class="logo" />
 					<h6 class="header-title">Country Browser</h6>
-				</span>
-				<ul class="nav-list">
-					<li><a href="/">Home</a></li>
-					<li><a href="#">Countries</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-				<span class="scheme-switcher">
-					<input type="text" class="secondary-button" placeholder="Search Country..." />
-					<button id="change-mode">
-						<img src="/svg/bulb-off.svg" alt="Dark mode" />
-					</button>
-				</span>
+				</a>
+
+				<button class="hamb-button secondary-button"><img src="/svg/hamb.svg" alt="Menu" /></button>
+				<div class="hamb-menu">
+					<ul class="nav-list">
+						<li><a href="/">Home</a></li>
+						<li><a href="#">Countries</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+					<span class="scheme-switcher">
+						<input id="scheme-switcher" type="text" class="primary-button" placeholder="Search Country..." />
+						<button id="change-mode">
+							<img src="/svg/bulb-off.svg" alt="Dark mode" />
+						</button>
+					</span>
+				</div>
 			</nav>
 		</header>
 

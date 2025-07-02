@@ -1,10 +1,10 @@
 #app-footer {
-	position: relative;
+	position: fixed;
 	width: 100dvw;
 	height: 0px;
 
-	top: 0;
-	transform: translate(-10%, 0px);
+	top: 100%;
+	right: 0;
 	background-color: red;
 	box-shadow: 0px 0px 100px 20px rgba(var(--template_shadows), 1);
 }
