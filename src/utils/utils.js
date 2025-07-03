@@ -52,5 +52,11 @@ export const sanitizeOutput = (val) =>
 				.replace(/\'/g, '&#x27;')
 				.replace(/\//g, '&#x2F;')}`
 		: null
-
+/**
+ * @returns {string} path of the image used as fallback
+ *
+ * @example
+ * const urlImage = ""
+ * <img src=' `${urlImage ?? imageFallback()}`' />
+ */
 export const ImageFallback = () => '/imgs/not-found.webp'

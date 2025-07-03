@@ -30,6 +30,10 @@ export function RenderCountryResult(data) {
 	return docFragment
 }
 
+/**
+ * @param {number} numberOfElements The amount of elements will be rendered as placeholder
+ * @returns {DocumentFragment} the doc fragment which contains the HTML
+ */
 export function RenderCountrySkeleton(numberOfElements = 5) {
 	const docFragment = new DocumentFragment()
 	const element = document.createElement('span')

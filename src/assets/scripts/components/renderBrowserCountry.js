@@ -9,14 +9,12 @@ const MAXIMUM_OF_ELEMENTS = 5
  * @param {ReturnType<typeof COUNTRY_ADAPTER>} adaptedData the data received from the api adapter
  * @returns {HTMLElement} An HTML Element to then inject into the dom
  */
-
 export function RenderBrowseCountry(adaptedData) {
 	const mainArticle = document.createElement('article')
 	mainArticle.classList.add('country-article')
 
 	const data = adaptedData?.at(0) ?? null
 
-	//TODO(#6): check if this condition is even possible to get
 	if (!data) return ErrorPopup(new CUSTOM_ERROR(400, 'Country does not exists'))
 
 	const { common, official } = data.name

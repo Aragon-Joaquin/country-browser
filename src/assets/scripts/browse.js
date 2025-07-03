@@ -8,7 +8,6 @@ window.addEventListener(
 		const urlParams = new URLSearchParams(window.location.search)
 		const countryCode = urlParams.get('q')
 
-		//TODO(#5): return error and redirect to home!
 		if (!countryCode) return
 		const throbber = $('#loading-throbber')
 		const mainApp = $('#app-main')

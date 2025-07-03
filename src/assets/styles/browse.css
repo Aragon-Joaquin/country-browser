@@ -106,9 +106,11 @@
 		gap: 10px 0px;
 		scrollbar-width: thin;
 		overflow-y: auto;
+		overflow-x: hidden;
 
 		& > a {
-			width: fit-content !important;
+			width: 100% !important;
+			padding: 2px;
 			text-decoration: none;
 			transition: margin 0.3s ease-in-out, font-weight 0.3s ease-in-out;
 
@@ -124,7 +126,7 @@
 		content: '';
 		position: absolute;
 		right: 0;
-		top: 35px;
+		top: 40px;
 		width: 100%;
 		height: 2px;
 		border-radius: 4px;
@@ -142,6 +144,11 @@
 	border-radius: 20px;
 	padding: 30px 20px;
 	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+
+	& > div > h3 {
+		text-align: center;
+		margin-bottom: 10px;
+	}
 }
 
 .list-of-unnecessary,
