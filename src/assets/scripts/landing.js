@@ -38,24 +38,21 @@ continentSelect.addEventListener('change', ({ target }) => {
 countrySearcher.addEventListener(
 	'input',
 	debouncer(async ({ target }) => {
+		ResetSearchResults(RenderCountrySkeleton(7))
 		if (!target?.value) return ResetSearchResults([])
 
-		ResetSearchResults(RenderCountrySkeleton(7))
 		const data = await MakeApiCall(HASHMAP_ENDPOINTS.NAME, target.value)
 		ResetSearchResults(RenderCountryResult(data))
 	})
 )
 
-subregionSelect.addEventListener(
-	'change',
-	debouncer(async ({ target }) => {
-		if (!target?.value) return ResetSearchResults([])
+subregionSelect.addEventListener('change', async ({ target }) => {
+	ResetSearchResults(RenderCountrySkeleton(7))
+	if (!target?.value) return ResetSearchResults([])
 
-		ResetSearchResults(RenderCountrySkeleton(7))
-		const data = await MakeApiCall(HASHMAP_ENDPOINTS.SUBREGION, target.value)
-		ResetSearchResults(RenderCountryResult(data))
-	})
-)
+	const data = await MakeApiCall(HASHMAP_ENDPOINTS.SUBREGION, target.value)
+	ResetSearchResults(RenderCountryResult(data))
+})
 
 //! click outside to close
 document.addEventListener('click', (event) => {
