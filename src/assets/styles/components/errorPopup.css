@@ -1,4 +1,7 @@
 /*TODO(#9): do i merge this colors into style.css?  */
+:root {
+	--errorRed: #c0392b;
+}
 
 .light-mode {
 	--bgError: #f5f5f7;
@@ -23,7 +26,7 @@
 	background-color: var(--bgError);
 	border: 1px solid var(--borderError);
 	border-radius: 8px;
-	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+	box-shadow: 0 0 10px 0px rgba(192, 57, 43, 0.6);
 	padding: 18px;
 	min-width: 320px;
 	max-width: 400px;
@@ -45,7 +48,7 @@
 		font-weight: 700;
 
 		& > strong {
-			color: #c0392b;
+			color: var(--errorRed);
 		}
 	}
 
@@ -73,7 +76,21 @@
 	transition: color 0.3s ease-in-out, scale 0.1s ease-in-out;
 
 	&:hover {
-		color: #c0392b;
+		color: var(--errorRed);
 		scale: 1.05;
+	}
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 480px) {
+	#error-popup {
+		min-width: 180px;
+		max-width: 300px;
+		transform: translate(-10px, -10px);
 	}
 }

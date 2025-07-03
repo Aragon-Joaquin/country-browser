@@ -125,7 +125,7 @@
 	& > #change-mode {
 		outline: none;
 		border: none;
-		background: var(--white);
+		background: rgba(var(--template_shadows), 0.1);
 		border-radius: 9999px;
 		padding: 5px;
 		transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
@@ -166,6 +166,7 @@
 
 		& > .country-info {
 			& > h6 {
+				margin: 0;
 				font-size: 0.9em;
 			}
 			& > p {
@@ -199,6 +200,7 @@
 	}
 }
 
+/* media queries */
 @media (max-width: 480px) {
 }
 

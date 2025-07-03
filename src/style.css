@@ -9,6 +9,7 @@
 @import url('assets/styles/components/components.css');
 @import url('assets/styles/components/errorPopup.css');
 @import url('assets/styles/components/generics.css');
+@import url('assets/styles/components/countryResult.css');
 
 /* fonts */
 @font-face {
@@ -88,9 +89,9 @@ body {
 	color: var(--black);
 	display: flex;
 	flex-direction: column;
-	width: calc(100dvw - 20%);
+	width: calc(100dvw - 30%);
 	min-width: 1000px;
-	height: 100dvh;
+	min-height: 100dvh;
 	margin: auto;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -125,6 +126,22 @@ body {
 
 @media (max-width: 480px) {
 	body {
-		width: calc(100dvw - 5%) !important;
+		width: 100% !important;
+		& > #app-main {
+			margin-top: 80px !important;
+		}
+	}
+
+	.hero-section {
+		padding: 10px;
+		margin: 10px;
+
+		& > .hero-title {
+			gap: 10px;
+
+			& > p {
+				font-size: 0.9rem;
+			}
+		}
 	}
 }
