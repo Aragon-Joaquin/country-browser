@@ -92,33 +92,24 @@ body {
 	min-width: 1000px;
 	height: 100dvh;
 	margin: auto;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: auto;
 
 	transition: background-color 0.3s, color 0.3s;
 
 	& > #app-main {
-		margin-top: 100px;
+		margin-top: 100px !important;
 		flex: 1;
 	}
 }
 
 /*! media queries*/
 
-@media (max-width: 480px) {
-	body {
-		width: calc(100dvw - 5%) !important;
-	}
-}
-
-@media (max-width: 768px) {
-}
-
 @media (max-width: 1024px) {
 	body {
 		min-width: 0 !important;
 		width: calc(100dvw - 10%);
 		& > #app-main {
-			margin-top: 10px !important;
 			gap: 10px !important;
 		}
 	}
@@ -126,5 +117,14 @@ body {
 	.hero-section {
 		flex-direction: column !important;
 		gap: 10px;
+	}
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 480px) {
+	body {
+		width: calc(100dvw - 5%) !important;
 	}
 }

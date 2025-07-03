@@ -206,6 +206,18 @@
 	.header-nav {
 		padding: 10px 50px !important;
 	}
+
+	.logo-container {
+		& > img {
+			width: 20px !important;
+			height: 20px !important;
+		}
+	}
+
+	.hamb-button {
+		height: 30px !important;
+		width: 30px !important;
+	}
 }
 
 @media (max-width: 1024px) {
