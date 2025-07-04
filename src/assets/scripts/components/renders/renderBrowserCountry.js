@@ -19,7 +19,7 @@ export function RenderBrowseCountry(adaptedData) {
 	if (!data) return ErrorPopup(new CUSTOM_ERROR(400, 'Country does not exists'))
 
 	const { common, official } = data.name
-
+    
 	mainArticle.insertAdjacentHTML(
 		'afterbegin',
 		`  
@@ -40,7 +40,9 @@ export function RenderBrowseCountry(adaptedData) {
                     <span class="country-borders">
                         <h6>Borders: </h6>
                         <div class='borders'>
-                            ${data.borders?.map((brdr) => `<a href='/pages/browse?q=${brdr}'>${brdr}</a>`).join('')}
+                            ${data?.borders?.length 
+                                ? data.borders?.map((brdr) => `<a href='/pages/browse?q=${brdr}'>${brdr}</a>`).join('')
+                                : '<strong>No borders</strong>'}
                         </div>
                     </span>
             </header>
