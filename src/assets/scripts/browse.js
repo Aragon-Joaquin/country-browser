@@ -1,6 +1,6 @@
 import { HASHMAP_ENDPOINTS, MakeApiCall } from '../../services'
 import { $ } from '../../utils'
-import { RenderBrowseCountry } from './components/renderBrowserCountry'
+import { RenderBrowseCountry } from './components'
 
 window.addEventListener(
 	'load',

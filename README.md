@@ -1,5 +1,5 @@
 > [!NOTE]  
-> done in 6 days.
+> done in 7 days.
 
 # Vanilla JS - Country Browser
 

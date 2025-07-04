@@ -184,6 +184,118 @@
 	}
 }
 
+/*! gamba section */
+
+.gamba-countries {
+	position: relative;
+	text-align: center;
+	margin-bottom: 100px;
+	background-color: rgba(var(--template_shadows_opp), 0.1);
+	padding: 10px 0px;
+	border-radius: 16px;
+	display: flex;
+	height: 218px !important;
+
+	& > .gamba-title {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-wrap: pretty;
+		padding: 10px 30px;
+
+		& > h3 {
+			display: flex;
+			margin-bottom: 10px;
+			width: fit-content;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+		}
+		& > p {
+			margin-bottom: 20px;
+			font-size: 0.9rem;
+			color: var(--dark-gray);
+		}
+
+		& > #reroll-button {
+			transition: scale 0.3s ease-in-out;
+			&:hover {
+				scale: 1.05;
+			}
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			height: 100%;
+			width: 2px;
+			background-color: rgba(var(--template_shadows), 0.2);
+			right: 0;
+		}
+	}
+}
+
+#reroll-countries {
+	flex: 1 1 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 20px;
+
+	& > li {
+		background-color: rgba(var(--template_shadows), 0.05);
+		border-radius: 10px;
+		padding: 10px;
+		padding-bottom: 5px;
+		display: flex;
+
+		flex-direction: column;
+		gap: 7px;
+		list-style: none;
+		height: fit-content;
+		width: 200px !important;
+
+		& > a {
+			display: flex;
+			justify-content: center;
+		}
+	}
+}
+
+.gamba-flag {
+	aspect-ratio: 3/2;
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	border-radius: 10px;
+
+	transition: scale 0.3s ease-in-out;
+
+	&:hover {
+		scale: 1.05;
+	}
+}
+
+.gamba-info {
+	position: relative;
+	display: flex;
+	align-items: baseline;
+	justify-content: center;
+	color: inherit;
+	text-decoration: none;
+
+	& > h6 {
+		overflow: hidden;
+		text-wrap: nowrap;
+		text-overflow: ellipsis;
+		font-size: 1rem;
+		margin: 0;
+	}
+}
+
 /*! fetch responses */
 #search-results {
 	position: absolute;
@@ -274,11 +386,51 @@
 			height: 2px !important;
 		}
 	}
+
+	.gamba-countries {
+		height: 180px !important;
+		& > .gamba-title {
+			padding: 10px !important;
+		}
+	}
+	#reroll-countries {
+		padding: 10px !important;
+		& > li {
+			width: 125px !important;
+		}
+	}
 }
 
 @media (max-width: 768px) {
 	#app-main {
 		gap: 10px !important ;
+	}
+
+	.gamba-countries {
+		height: fit-content !important;
+		flex-direction: column !important;
+
+		& > .gamba-title {
+			& > h3 {
+				font-size: 1.5rem;
+			}
+			& > p {
+				margin-bottom: 10px;
+			}
+			&::before {
+				bottom: 0 !important;
+				width: 90%;
+				height: 2px;
+				transform: translate(-5%, 10px);
+			}
+		}
+	}
+
+	#reroll-countries {
+		gap: 10px !important;
+		& > li {
+			width: 125px !important;
+		}
 	}
 }
 
@@ -308,5 +460,16 @@
 		& > h2 > strong::before {
 			font-size: 27px !important;
 		}
+	}
+
+	#reroll-countries {
+		flex-direction: column;
+
+		& > li {
+			width: 170px !important;
+		}
+	}
+	.gamba-countries {
+		margin: 10px;
 	}
 }

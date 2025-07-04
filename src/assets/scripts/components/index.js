@@ -1,3 +1,4 @@
 export * from './errorPopup'
-export * from './renderBrowserCountry'
-export * from './renderCountryRes'
+export * from './renders/renderBrowserCountry'
+export * from './renders/renderCountryRes'
+export * from './renders/renderGamba'

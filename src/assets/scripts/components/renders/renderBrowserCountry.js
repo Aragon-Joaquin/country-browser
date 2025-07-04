@@ -1,8 +1,9 @@
-import { COUNTRY_ADAPTER } from '../../../adapter/CountryAdapter'
-import { ImageFallback, capitalizeFirstLetter } from '../../../utils'
+//TODO(#12): import aliases
+import { COUNTRY_ADAPTER } from '../../../../adapter'
+import { ImageFallback, capitalizeFirstLetter } from '../../../../utils'
 
-import { CUSTOM_ERROR } from '../../../errors/customError'
-import { ErrorPopup } from '../../scripts/components'
+import { CUSTOM_ERROR } from '../../../../errors/customError'
+import { ErrorPopup } from '../../../scripts/components'
 
 const MAXIMUM_OF_ELEMENTS = 5
 /**

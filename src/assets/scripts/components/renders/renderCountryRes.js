@@ -1,4 +1,4 @@
-import { ImageFallback } from '../../../utils'
+import { ImageFallback } from '../../../../utils'
 
 /**
  * @param {ReturnType<typeof ADAPTER_HASHMAP[HASHMAP_ENDPOINTS.NAME]>[]} data This is the result from the api call of countries! The one which got adapted
@@ -18,7 +18,7 @@ export function RenderCountryResult(data) {
 				</a>
 				<a class='country-info' href='/pages/browse?q=${el?.cca3}'>
 					<h6 class='country-name'>${el.name.common}</h6>
-					<p class='country-capitals'>${el?.capital.join(' | ')}</p>
+					<p class='country-capitals'>${el?.capital?.join(' | ')}</p>
 				</a>
 				<p class='country-cca3'>${el?.cca3}</p>
 				`

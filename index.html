@@ -11,6 +11,10 @@
 
 		<title>Country Browser</title>
 
+		<!-- this is the fastest way to load this script, and even though, it shows a blinking -->
+		<script type="module" rel="preload" as="script" src="/src/main.js"></script>
+		<script async type="module" src="/src/main.js"></script>
+
 		<link rel="stylesheet" href="/src/assets/styles/landing.css" />
 		<link rel="stylesheet" href="/src/style.css" />
 	</head>
@@ -97,10 +101,18 @@
 					<img src="/imgs/capital3.webp" alt="image of Camlica Tower, Coast of Istanbul" />
 				</div>
 			</section>
+
+			<section class="gamba-countries">
+				<span class="gamba-title">
+					<h3>GAMBA w/ countries!</h3>
+					<p>Don't know what country to choose? Here's the solution!</p>
+					<button id="reroll-button" class="secondary-button">Reroll!</button>
+				</span>
+				<ul id="reroll-countries"></ul>
+			</section>
 		</main>
 
 		<footer id="app-footer"></footer>
 	</body>
-	<script type="module" src="/src/main.js"></script>
 	<script type="module" src="/src/assets/scripts/landing.js"></script>
 </html>

@@ -4,10 +4,11 @@ import { $, debouncer, ListenColorScheme } from './utils'
 
 ListenColorScheme()
 
-window.addEventListener('load', () => {
-	const inputHeader = $('#input-switcher')
-	const results = $('#input-result')
+//! select items from dom
+const inputHeader = $('#input-switcher')
+const results = $('#input-result')
 
+window.addEventListener('load', () => {
 	const replaceLast = (val) => results.replaceChildren(val)
 
 	inputHeader.addEventListener(

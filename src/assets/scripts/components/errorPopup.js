@@ -4,10 +4,10 @@ import { $, IsWindowUndefined } from '../../../utils'
  *
  * @description show a popup that appends to the body.
  *
- * @param {Error | {name?: string, message?: string}} err - NEEDS TO HAVE AT LEAST A name AND A message PROPERTY.
+ * @param {CUSTOM_ERROR | {name?: string, message?: string}} err - NEEDS TO HAVE AT LEAST A name AND A message PROPERTY.
  */
 export function ErrorPopup(err) {
-	if (IsWindowUndefined()) return console.error('Window is not defined. Try using a browser instead :/')
+	if (IsWindowUndefined()) return
 
 	const errorPopup = document.createElement('span')
 	errorPopup.setAttribute('id', 'error-popup')

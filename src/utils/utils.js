@@ -33,7 +33,13 @@ export const debouncer = (cb, wait = 1000) => {
 /**
  * @returns TRUE if window DOESN'T exist
  */
-export const IsWindowUndefined = () => typeof globalThis === 'undefined' || typeof window === 'undefined'
+
+//TODO(#10): make it more clear?
+export const IsWindowUndefined = () => {
+	const res = typeof globalThis === 'undefined' || typeof window === 'undefined'
+	res && console.error('Window is not defined. Try using a browser instead :/')
+	return res
+}
 
 /**
  * @description prevents XSS attacks by replacing dangerous symbols like '<', '>', '&', '\' in their html form!

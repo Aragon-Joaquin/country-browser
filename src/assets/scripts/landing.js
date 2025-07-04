@@ -1,19 +1,28 @@
 import { CONTINENT_SUBREGIONS, CONTINENTS } from '../../constants'
 import { HASHMAP_ENDPOINTS, MakeApiCall } from '../../services'
 import { $, debouncer } from '../../utils'
-import { RenderCountryResult, RenderCountrySkeleton } from './components'
+import { RenderCountryResult, RenderCountrySkeleton, RenderGamba } from './components'
+import { getGambaCandidate } from './utils/gambaUtils'
 
 //! selectors
+//from the select - options
 const continentSelect = $('#continent-select')
 const subregionSelect = $('#region-search')
+
+//input
 const countrySearcher = $('#country-search')
 
+// results of both input + select - options
 const searchResults = $('#search-results')
+
+//end of the page. gamba section
+const gambaCountries = $('#reroll-countries')
+const gambaButton = $('#reroll-button')
 
 //? utils
 const ResetSearchResults = (val) => searchResults.replaceChildren(val)
 
-//! handleing when chosing in form
+//! handling when choosing in form
 continentSelect.addEventListener('change', ({ target }) => {
 	const continent = CONTINENTS[target?.value.toUpperCase() ?? '']
 
@@ -61,3 +70,13 @@ document.addEventListener('click', (event) => {
 	if (!isClosed && !searchResults?.children?.length) return
 	ResetSearchResults([])
 })
+
+//! GAMBA!!!
+const gambaData = await getGambaCandidate()
+
+//yes, i know that the country can appear twice in a row with luck
+const rerollMath = () => new Array(3).fill(null).map((_) => gambaData[(gambaData.length * Math.random()) | 0])
+const rerollCountries = () => gambaCountries.replaceChildren(RenderGamba(rerollMath()))
+
+rerollCountries()
+gambaButton.addEventListener('click', () => rerollCountries())
