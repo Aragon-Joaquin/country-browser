@@ -7,12 +7,15 @@ import { ErrorPopup } from '../components'
 //* not meant to use except on landing.js
 export async function getGambaCandidate() {
 	const data = windowStorage(TYPE_STORAGES.SESSION, STORAGE_KEYS.ALL_COUNTRIES)
-	try {
-		const item = JSON.parse(data.GET_ITEM() ?? {})
-		if (item) return item
-	} catch (error) {
-		data.DELETE_ITEM()
-		ErrorPopup(new CUSTOM_ERROR(409, 'Error while parsing local storage'))
+	const item = data.GET_ITEM()
+
+	if (item != null) {
+		try {
+			return JSON.parse(item)
+		} catch (error) {
+			data.DELETE_ITEM()
+			ErrorPopup(new CUSTOM_ERROR(409, 'Error while parsing local storage'))
+		}
 	}
 
 	const res = await MakeApiCall(HASHMAP_ENDPOINTS.ALL, '', 'fields=name,cca3,flags', true)
